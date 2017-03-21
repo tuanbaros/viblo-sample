@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.constraint.ConstraintLayout
+    <data>
+
+        <variable
+            name="activity"
+            type="tuannt.viblosample.MainActivity"/>
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="tuannt.viblosample.MainActivity">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        <ImageSwitcher
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:inAnimation="@android:anim/slide_in_left"
+            android:outAnimation="@android:anim/slide_out_right"
+            android:tag="@{1}"
+            app:factory="@{@drawable/anh_1}"
+            app:slide="@{activity}"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
+
 </layout>
