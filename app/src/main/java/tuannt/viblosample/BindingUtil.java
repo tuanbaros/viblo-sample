@@ -29,29 +29,4 @@ public class BindingUtil {
             }
         });
     }
-
-    @BindingAdapter({"slide"})
-    public static void setSlide(final ImageSwitcher imageSwitcher, final MainActivity activity) {
-        final int pos = (Integer) imageSwitcher.getTag();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        imageSwitcher
-                            .setImageResource(
-                                activity.getSlides()[pos % activity.getSlides().length]);
-                        imageSwitcher.setTag(pos + 1);
-                        setSlide(imageSwitcher, activity);
-                    }
-                });
-            }
-        }).start();
-    }
 }
